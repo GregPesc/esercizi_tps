@@ -1,0 +1,98 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Applica un font sans-serif a tutto */
+body {
+  font-family: sans-serif;
+}
+
+/* Sfondo leggermente grigio per ridurre il contrasto */
+.filterable-product-table,
+.search-bar,
+.product-table {
+  background-color: #f7f7f7;
+  color: #333;
+  /* Testo scuro ma non nero puro */
+}
+
+/* Stile della barra di ricerca */
+.search-bar input[type="text"] {
+  padding: 8px;
+  margin-bottom: 8px;
+  /* Spazio tra casella di testo e checkbox */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar label {
+  display: block;
+  /* Mette la checkbox sotto la casella di testo */
+  margin: 8px 0;
+}
+
+/* Stile dei prodotti non in stock */
+.out-of-stock {
+  color: #d14343;
+  /* Rosso scuro, meno intenso */
+}
+
+/* Intestazioni della tabella con allineamento */
+.product-table-header,
+.product-row,
+.product-category-row {
+  display: flex;
+  justify-content: space-between;
+  /* Assicura che Nome e Prezzo siano agli estremi */
+  padding: 10px 0;
+}
+
+/* Allinea Nome e Prezzo nella testata e nelle righe, con padding */
+.name-header,
+.price-header,
+.name,
+.price {
+  flex: 1;
+  /* Assegna uguale spazio ma permette l'allineamento */
+  text-align: left;
+  /* Allinea il nome a sinistra */
+  padding-left: 20px;
+  /* Padding a sinistra per i nomi */
+}
+
+.price-header,
+.price {
+  text-align: right;
+  /* Allinea il prezzo a destra */
+  padding-right: 20px;
+  /* Padding a destra per i prezzi */
+}
+
+/* Stile per le intestazioni della tabella */
+.product-table-header {
+  background-color: #e9ecef;
+  /* Sfondo chiaro per le intestazioni */
+  font-weight: bold;
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Alternare i colori di sfondo delle righe della tabella */
+.product-row:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+.product-row:nth-child(even) {
+  background-color: #e9e9e9;
+}
+
+/* Centra il testo delle categorie */
+.product-category-row {
+  justify-content: center;
+  /* Centra le categorie */
+  font-weight: bold;
+  background-color: #ddd;
+  /* Distingue le righe di categoria */
+}
