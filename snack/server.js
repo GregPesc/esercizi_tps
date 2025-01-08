@@ -33,8 +33,8 @@ app.put("/snack", (req, res) => {
     const snack = req.body;
 
     stmt.run(
-        snack.nome,
-        snack.categoria,
+        snack.nome.toLowerCase(),
+        snack.categoria.toLowerCase(),
         snack.peso,
         snack.prezzo,
         snack.calorie,
@@ -80,7 +80,7 @@ app.get("/snack/:nome", (req, res) => {
         });
     });
 
-    stmt.all(req.params.nome, (err, rows) => {
+    stmt.all(req.params.nome.toLowerCase(), (err, rows) => {
         if (err) {
             console.error("Errore Query:", err.message);
             res.status(500).send(err.message);
@@ -122,7 +122,7 @@ app.get("/cat/:categoria", (req, res) => {
         });
     });
 
-    stmt.all(req.params.categoria, (err, rows) => {
+    stmt.all(req.params.categoria.toLowerCase(), (err, rows) => {
         if (err) {
             console.error("Errore Query:", err.message);
             res.status(500).send(err.message);
@@ -166,11 +166,11 @@ db.run(
 //     `
 //     INSERT INTO "Snack" ("nome", "categoria", "prezzo", "peso", "calorie")
 //     VALUES
-//     ('Patatine Classiche', 'Salato', 1.99, 100, 500),
-//     ('Patatine Paprika', 'Salato', 2.49, 80, 420),
-//     ('Cioccolato al Latte', 'Dolce', 1.50, 50, 250),
-//     ('Barretta Energetica', 'Salute', 1.99, 45, 180),
-//     ('Biscotti Integrali', 'Dolce', 2.39, 120, 480);
+//     ('patatine classiche', 'salato', 1.99, 100, 500),
+//     ('patatine paprika', 'salato', 2.49, 80, 420),
+//     ('cioccolato al latte', 'dolce', 1.50, 50, 250),
+//     ('barretta energetica', 'salute', 1.99, 45, 180),
+//     ('biscotti integrali', 'dolce', 2.39, 120, 480);
 //     `
 // );
 
