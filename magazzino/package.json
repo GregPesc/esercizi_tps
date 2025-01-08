@@ -1,15 +1,16 @@
 {
   "name": "magazzino",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "magazzino_server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "GregPesc",
   "license": "Unlicense",
   "description": "",
   "dependencies": {
     "express": "^4.21.1",
     "sqlite3": "^5.1.7"
-  }
+  },
+  "type": "module"
 }
