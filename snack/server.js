@@ -30,7 +30,7 @@ app.put("/snack", (req, res) => {
         });
     });
 
-    const snack = req.query;
+    const snack = req.body;
 
     if (isNaN(parseFloat(snack.prezzo))) {
         return res.status(400).send("Valore prezzo non valido");
