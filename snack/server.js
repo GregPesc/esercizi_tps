@@ -206,22 +206,23 @@ const db = new sqlite3.Database("snack.db", (err) => {
 });
 
 // Crea tabella Snack se non esiste
-db.run(
-    `
+db.serialize(() => {
+    db.run(
+        `
     CREATE TABLE IF NOT EXISTS "Snack" (
     "nome"    TEXT NOT NULL,
     "categoria"   TEXT NOT NULL,
     "prezzo"    NUMERIC NOT NULL CHECK(prezzo >= 0),
     "peso"    INTEGER NOT NULL CHECK(peso > 0),
     "calorie"    INTEGER NOT NULL CHECK(calorie > 0),
-    PRIMARY KEY("nome") \
+    PRIMARY KEY("nome")
     );
     `
-);
+    );
 
-// Aggiungi alcuni dati
-db.run(
-    `
+    // Aggiungi alcuni dati
+    db.run(
+        `
     INSERT INTO "Snack" ("nome", "categoria", "prezzo", "peso", "calorie")
     VALUES
     ('patatine classiche', 'salato', 1.99, 100, 500),
@@ -230,8 +231,9 @@ db.run(
     ('barretta energetica', 'salute', 1.99, 45, 180),
     ('biscotti integrali', 'dolce', 2.39, 120, 480);
     `,
-    (err) => {}
-);
+        (err) => {}
+    );
+});
 
 // Avvia il server in ascolto
 app.listen(20000, () => {
